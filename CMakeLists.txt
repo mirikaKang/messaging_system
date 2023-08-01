@@ -1,10 +1,13 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 
 SET(PROJECT_NAME messaging_system)
+set(CMAKE_C_COMPILER "/usr/bin/aarch64-linux-gnu-gcc")
+set(CMAKE_CXX_COMPILER "/usr/bin/aarch64-linux-gnu-g++")
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../bin")
+set(VCPKG_TARGET_TRIPLET "arm64-linux" CACHE STRING "VCPKG Target Triplet to use")
 
 OPTION(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 OPTION(USE_UNIT_TEST "Use unit test" ON)
@@ -15,6 +18,8 @@ ENDIF()
 
 # set the project name
 PROJECT(${PROJECT_NAME} VERSION 1.0.0.0)
+
+
 
 # cpp_libraries
 ADD_SUBDIRECTORY(utilities)
